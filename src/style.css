@@ -1,1 +1,48 @@
-/* Acá va tu código */
+button {
+
+}
+
+#copy1, #comeBack1, #restart1, #copy2, #comeBack2, #restart2, #cipher, #decipher {
+  display: none;
+}
+
+#welcome {
+  display: block;
+}
+
+#enter {
+  display: none;
+}
+
+#enterA {
+  display: none;
+}
+
+#enterB {
+  display: none;
+}
+
+#cipher {
+
+}
+
+#decipher {
+
+}
+
+#title {
+  display: flex;
+  width: 100%;
+  height: 10%;/*este valor no afecta nada */
+}
+
+#imgTitle {
+  display: flex;
+
+}
+
+.imgTitle {
+  display: flex;
+  width: 10%; /*este lo cambio y cambia todo */
+  height: 100%;
+}

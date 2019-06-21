@@ -7,7 +7,67 @@
   </head>
   <body>
     <div id="root">
-      <h1>Hola mundo!</h1>
+      <div id="title">
+
+        <div class="imgTitle">
+          <img src="../../mujer-sentada.svg" alt="mujer sentada">
+        </div>
+        <div id="imgTitle">
+          <h1>Archivos Secretos</h1>
+        </div>
+        <div class="imgTitle">
+          <img src="../../mujer-sentada2.svg" alt="mujer sentada">
+        </div>
+
+      </div>
+      <div id="welcome">
+        <p>¿Algún archivo vergonzoso?<br>¿Harto de inventar nombres que ni tú recuerdas y perder ese material valioso? </p>
+        <button id="yes">Sí</button>
+      </div>
+      <div id="enter">
+        <div id="enterA">
+          <p>Ingresa aquí el nombre de tu archivo.<br> Nosotros te lo encriptamos.</p>
+          <table>
+            <tr>
+              <td><p>Nombre</p></td>
+              <td><input type="text" id="nameA"></td>
+              <td><p>Clave#</p></td>
+              <td><input type="text" id="offsetA"></td>
+              <td><p>*</p></td>
+            </tr>
+          </table>
+
+          <button id="btnEnter1">Ingresar</button>
+          <button id="copy1">Copiar</button>
+          <button id="comeBack1">Volver</button>
+          <button id="restart1">Reiniciar</button>
+          <div id="cipher">
+            <p>Nombre secreto creado. <br> Asegúrate de guardar la clave para revelar tu secreto.</p>
+          </div>
+        </div>
+        <div id="enterB">
+          <p>¿Olvidaste qué ocultaste en tu archivo? <br> Aquí te lo recordamos. </p>
+          <table>
+            <tr>
+              <td><p>Nombre</p></td>
+              <td><input type="text" id="nameB"></td>
+              <td><p>Clave#</p></td>
+              <td><input type="text" id="offsetB"></td>
+              <td><p>*</p></td>
+            </tr>
+          </table>
+
+          <button id="btnEnter2">Ingresar</button>
+          <button id="copy2">Copiar</button>
+          <button id="comeBack2">Volver</button>
+          <button id="restart2">Reiniciar</button>
+          <div id="decipher">
+            <p>Nombre secreto revelado. <br> Disfrútalo.</p>
+          </div>
+        </div>
+        <p>* La Clave es un número que te permitirá encontrar el verdadero nombre de tus archivos. Aconsejamos una clave para cada grupo de archivos. No la olvides, o será difícil recuperarlos.</p>
+      </div>
+
     </div>
     <script src="cipher.js"></script>
     <script src="index.js"></script>
