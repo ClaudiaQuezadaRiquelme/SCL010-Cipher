@@ -26,13 +26,14 @@ describe('cipher', () => {
       assert.equal(cipher.encode(33," ¿¡-_#@%&=+"), " ¿¡-_#@%&=+");
     });
 
-    /*
-    it('debería retornar "Undefined" para "/:*?"<>|" (Caracteres no válidos) con offset 33', () => {
-      assert.equal(cipher.encode(33,'/:*?"<>|'), Undefined);
-    });*/ //NO FUNCIONA
+    it('debería retornar "" para "\134/:*?"<>|" (Caracteres no válidos) con offset 33 => caracteres inválidos', () => {
+      assert.equal(cipher.encode(33,'\134/:*?"<>|'), "");
+    }); //NO FUNCIONA-BA
     //Intenté con caracteres hexadecimales, etc, pero no funciona tampoco.
     // ¿no será por el alert que no funciona? puede ser.
-    // Tal vez si no estuviera el alert, funcionaría con caracteres especiales hexadecimales, &, etc.
+    // Tal vez si no estuviera el alert, funcionaría con caracteres especiales hexadecimales, &, etc. //ESO ERA
+    // Con este caracter '\' no funciona.
+    // Si reemplazo ese caracter con \134 , funciona.
   });
 
   describe('cipher.decode', () => {
@@ -56,6 +57,15 @@ describe('cipher', () => {
     it('debería retornar " ¿¡-_#@%&=+" para " ¿¡-_#@%&=+" con offset 33 => algunos caracteres válidos', () => {
       assert.equal(cipher.decode(33," ¿¡-_#@%&=+"), " ¿¡-_#@%&=+");
     });
+
+    it('debería retornar "" para "\134/:*?"<>|" (Caracteres no válidos) con offset 33 => caracteres inválidos', () => {
+      assert.equal(cipher.decode(33,'\134/:*?"<>|'), "");
+    }); //NO FUNCIONA-BA
+    //Intenté con caracteres hexadecimales, etc, pero no funciona tampoco.
+    // ¿no será por el alert que no funciona? puede ser.
+    // Tal vez si no estuviera el alert, funcionaría con caracteres especiales hexadecimales, &, etc. //ESO ERA
+    // Con este caracter '\' no funciona.
+    // Si reemplazo ese caracter con \134 , funciona.
   });
 
 });
