@@ -1,292 +1,205 @@
-# Cifrado César
+# Archivos Secretos
 
-Cifrar significa codificar. El [cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher) es uno de los primeros métodos de cifrado conocidos. El emperador romano Julio César lo usaba para enviar órdenes secretas a sus generales en los campos de batalla.
+_¿Tienes archivos vergonzosos y no quieres que nadie sepa cómo se llaman? Archivos Secretos te ofrece una sencilla solución: modificar el nombre de tu archivo con una clave secreta numérica de tu elección para que nadie sepa el nombre de tu archivo._
 
-![caeser-cipher](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/2000px-Caesar3.svg.png)
+## Usuarios
 
-El cifrado césar es una de las técnicas más simples para cifrar un mensaje. Es un tipo de cifrado por sustitución, es decir que cada letra del texto original es reemplazada por otra que se encuentra un número fijo de posiciones (desplazamiento) más adelante en el mismo alfabeto.
+_Este producto está dirigido a personas que quieran mantener su privacidad respecto al nombre de sus archivos en caso de que los guarden en un dispositivo compartido o que sientan que muchas personas miran su computadora y pueden ver de reojo el nombre de aquellos archivos que no deseen que se conozcan._
 
-Por ejemplo, si usamos un desplazamiento (_offset_) de 3 posiciones:
-
-- La letra A se cifra como D.
-- La palabra CASA se cifra como FDVD.
-- Alfabeto sin cifrar: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-- Alfabeto cifrado: D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
-
-En la actualidad, todos los cifrados de sustitución simple se descifran con mucha facilidad y, aunque en la práctica no ofrecen mucha seguridad en la comunicación por sí mismos; el cifrado César sí puede formar parte de sistemas más complejos de codificación, como el cifrado Vigenère, e incluso tiene aplicación en el sistema ROT13.
-
-## Resumen del proyecto
-
-¿Qué tengo que hacer exactamente? En este proyecto crearás la primera aplicación web del _bootcamp_. Servirá para que el usuario pueda cifrar y descifrar un texto indicando un desplazamiento específico de caracteres (_offset_).
-
-La temática es libre. Tú debes pensar en qué situaciones de la vida real se necesitaría cifrar un mensaje y pensar en cómo debe ser esa experiencia de uso (qué pantallas, explicaciones, mensajes, colores, ¿marca?) etc. 
-
-Algunas ideas de ejemplo:
-
-- Crear claves seguras para el email.
-- Encriptar/cifrar una tarjeta de crédito.
-- Herramienta de mensajería interna de una organización de derechos humanos en una zona de conflicto.
-- Mensajería secreta para parejas.
-
-
-## Consideraciones generales
-
-- Este proyecto se debe resolver de manera individual.
-- El proyecto será entregado subiendo tu código a GitHub (commit/push) y la interfaz será desplegada usando GitHub pages. Si no sabes lo que es GitHub, no te preocupes, lo aprenderás durante este proyecto.
-- Tiempo para completarlo: El proyecto dura 2 semanas, trabaja con sprints y planificando tus tareas.
-
-## Objetivos de aprendizaje
-
-En este proyecto aprenderás a construir una aplicación web que interactúe con el usuario a través del navegador y la lógica basada en esa interacción. Dicho en palabras sencillas, aprenderás a:
-
-- Pintar elementos de formulario en la pantalla usando **HTML** y **CSS**.
-- Permitir al usuario interactuar (**eventos del DOM**) y hacer algo cuando ocurran dichos eventos (cifrar/descifrar).
-- Manipular _**strings**_ (cadenas de texto).
-- Usar **control de flujo** (bucles, condicionales, ...).
-- Actualizar la pantalla con los resultados (**manipular el DOM**).
-- **Implementar funciones** dada una descripción de su comportamiento.
-- Verificar tu implementación con **pruebas unitarias**.
-- Entender las **necesidades del usuario** y cómo proponer una solución.
-- Organizar tu tiempo y priorizar tareas en un entorno de **alta incertidumbre**.
-
-## Parte Obligatoria
-
-Usa este alfabeto simple (solamente mayúsculas y sin ñ):
-
-- A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-
-#### Definición del producto
-
-En el README.md, cuéntanos cómo pensaste en los usuarios y cuál fue tu proceso para definir el producto final a nivel de experiencia y de interfaz.
-
-- Quiénes son los principales usuarios de producto.
-- Cuáles son los objetivos de estos usuarios en relación con tu producto.
-- Cómo crees que el producto que estás creando está resolviendo sus problemas.
-
-#### Interfaz de usuario (UI)
-
-La interfaz debe permitir al usuario:
-- Elegir un desplazamiento (_offset_) indicando cuántas posiciones queremos que el cifrado desplace cada caracter.
-- Insertar un mensaje (texto) que queremos cifrar.
-- Ver el resultado del mensaje cifrado.
-- Insertar un mensaje (texto) a descifrar.
-- Ver el resultado del mensaje descifrado.
-
-#### Scripts / Archivos
-
-* `README.md`: debe explicar cómo descargar, instalar y ejecutar la aplicación
-  así como una introducción a la aplicación, su funcionalidad y decisiones de
-  diseño que tomaron.
-* `src/index.html`: este es el punto de entrada a tu aplicación. Este archivo
-  debe contener tu _markup_ (HTML) e incluir el CSS y JavaScript necesario.
-* `src/cipher.js`: acá debes implementar el objeto cipher, el cual debe estar
-  _exportado_ en el objeto global (`window`). Este objeto (`cipher`) debe
-  contener dos métodos:
-  - `cipher.encode(offset, string)`: `offset` es el número de posiciones que
-    queremos mover a la derecha en el alfabeto y `string` el mensaje (texto)
-    que queremos cifrar.
-  - `cipher.decode(offset, string)`: `offset` es el número de posiciones que
-    queremos mover a la izquierda en el alfabeto y `string` el mensaje
-    (texto) que queremos descifrar.
-* `src/index.js`: acá debes escuchar eventos del DOM, invocar `cipher.encode()`
-  o `cipher.decode()` según sea necesario y actualizar el resultado en la UI.
-* `test/cipher.spec.js`: este archivo contiene algunos tests de ejemplo y acá
-  tendrás que implementar los tests para `cipher.encode()` y `cipher.decode()`.
-
-## Parte opcional o “Hacker edition”
-
-Las secciones llamadas “Hacker Edition” son opcionales. Si **terminaste** con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
-
-La descripción general de este proyecto no menciona qué pasaría con las letras minúsculas y otros caracteres (como espacios, puntuación, ñ, ...). El boilerplate incluye algunos tests (comentados en principio) que puedes usar como punto de partida para implementar el soporte para estos casos.
-
-Tampoco se menciona qué pasaría si el offset fuera negativo. Como parte del hacker edition te invitamos a explorar también esta caso por tu cuenta.
-
-## Vamos a los detalles. Consideraciones Técnicas
-
-La lógica del proyecto debe estar implementada completamente en JavaScript (ES6).
-En este proyecto NO está permitido usar librerías o frameworks, sólo
-[vanilla JavaScript](https://medium.com/laboratoria-how-to/vanillajs-vs-jquery-31e623bbd46e).
-
-No se debe utilizar la _pseudo-variable_ `this`.
-
-Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_
-y _lines_, y un mínimo del 50% de _branches_. El _boilerplate_ ya contiene el
-setup y configuración necesaria para ejecutar los tests (pruebas) así como _code
-coverage_ para ver el nivel de cobertura de los tests usando el comando `npm
-test`.
-
-El _boilerplate_ incluye tests (pruebas) de ejemplo como punto de partida.
-
-Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
-repositorio que contiene el _boilerplate_.
-
-El _boilerplate_ contiene una estructura de archivos como punto de partida así
-como toda la configuración de dependencias y tests de ejemplo:
-
-```text
-./
-├── .editorconfig
-├── .eslintrc
-├── .gitignore
-├── README.md
-├── package.json
-├── src
-│   ├── cipher.js
-│   ├── index.html
-│   ├── index.js
-│   └── style.css
-└── test
-    ├── cipher.spec.js
-    ├── headless.js
-    └── index.html
+_Los usuarios pueden utilizar el producto en un momento privado para renombrar sus archivos con ayuda de un número que para ellos tenga sentido, cambiar los nombres y sentirse a salvo porque los nombres de sus cosas no llaman mucho la atención_
+```
+- otras personas pueden pensar que son archivos de sistema o descargas sin renombrar de internet-
+```
+_y porque pueden recuperar el nombre del archivo guardado en caso de que no lo recuerden_
+```
+- como anteriormente se hacía: se guardaban los archivos dentro de muchas carpetas dentro de otras para luego poner un nombre ficticio que luego no podía relacionar con nada concreto-.
 ```
 
-El _boilerplate_ incluye tareas que ejecutan [eslint](https://eslint.org/) y
-[htmlhint](https://github.com/yaniswang/HTMLHint) para verificar el `HTML` y
-`JavaScript` con respecto a una guías de estilos. Ambas tareas se ejecutan
-automáticamente antes de ejecutar las pruebas (tests) cuando usamos el comando
-`npm run test`. En el caso de `JavaScript` estamos usando un archivo de
-configuración de `eslint` que se llama `.eslintrc` que contiene un mínimo de
-información sobre el parser que usar (qué version de JavaScript/ECMAScript), el
-entorno (browser en este caso) y las [reglas recomendadas (`"eslint:recommended"`)](https://eslint.org/docs/rules/).
-En cuanto a reglas/guías de estilo en sí,
-usaremos las recomendaciones _por defecto_ de tanto `eslint` como `htmlhint`.
 
-## Evaluación
+## Proceso de Diseño
 
-Te aconsejamos revisar [la rúbrica](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRktPN4ilZtkRN5tUb3DVhgeihwlzk63_-JI3moA-bXpKDbHDioAK2H3qbrwWNb0Ql4wX22Tgv7-PDv/pubhtml)
-para ver la descripción detallada de cada _habilidad_ y cada _nivel_. Esta es una lista de todas las habilidades involucradas en este proyecto y que evaluaremos cuando lo  completes:
-
-### General
-
-| Característica/Habilidad |
-|--------------------------|
-| Completitud |
-
-### Habilidades Blandas
-
-| Habilidad |
-|-----------|
-| Planificación y organización |
-| Autoaprendizaje |
-| Solución de problemas |
-| Dar y recibir feedback |
-| Adaptabilidad |
-| Trabajo en equipo |
-| Comunicación eficaz |
-| Presentaciones |
-
-### Habilidades Técnicas Front-end
-
-| Habilidad |
-|-----------|
-| **CS** |
-| Lógica |
-| Arquitectura |
-| **SCM** |
-| Git |
-| GitHub |
-| **JavaScript** |
-| Estilo |
-| Nomenclatura/semántica |
-| Funciones/modularidad |
-| Tests |
-| **HTML** |
-| Validación |
-| Estilo |
-| Semántica |
-| **CSS** |
-| DRY |
-| Responsive |
-
-### Habilidades Técnicas UX
-
-| Habilidad |
-|-----------|
-| User Centricity |
-
+### Viaje del usuario
+***
+1. Primero se le plantea la problemática al Usuario. El usuario debe elegir si usar o no la aplicación. Se muestra el texto de invitación además del nombre de la Aplicación con imágenes en sombra sugerentes.
+2. Cuando el usuario elige usar la app, aparecen las herramientas que tiene disponible para ingresar el nombre de su archivo y la clave a elección, ya sea para esconder el nombre o para revelarlo.
+3. Cuando presiona ingresar y ha ingresado los textos correspondientes, se oculta la herramienta no utilizada y se revela el nombre de archivo codificado o el nombre verdadero según corresponda y se mantiene a la vista la clave numérica. Se revela la opción de volver a la pantalla anterior o reiniciar toda la aplicación.
 ***
 
-## Pistas sobre cómo comenzar a trabajar en el proyecto
+###Observaciones
+***
+1. El título y fotos sugerentes insinúan el tipo de archivos que el usuario querría ocultar el nombre.
+2. Hay una nota inferior que explica de qué se trata la Clave, con sugerencia breve para elegir alguna adecuada.
+3. Botón copiar para guardar de inmediato el nombre del archivo y utilizarlo a su favor.
+***
 
-1. Antes que nada, asegúrate de tener un :pencil: editor de texto en
-   condiciones, algo como [Atom](https://atom.io/) o
-   [Code](https://code.visualstudio.com/).
-2. Para ejecutar los comandos a continuación necesitarás una :shell:
+
+## Comenzando 🚀
+
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+
+Mira **Deployment** para conocer como desplegar el proyecto.
+
+
+### Pre-requisitos 📋
+
+_Para instalar y testear la aplicación para propósitos de desarrollo y pruebas, necesitas:_
+
+***
+1. Para ejecutar los comandos en consola necesitarás una :shell:
    [UNIX Shell](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/shell),
-   que es un programita que interpreta líneas de comando (command-line
+   para interpretar líneas de comando (command-line
    interpreter) así como tener [git](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/scm/01-git)
    instalado. Si usas un sistema operativo "UNIX-like", como GNU/Linux o MacOS,
    ya tienes una _shell_ (terminal) instalada por defecto (y probablemente `git`
-   también). Si usas Windows puedes usar [Git bash](https://git-scm.com/download/win),
-   aunque recomendaría que consideres probar :penguin: GNU/Linux.
-3. Haz tu propio :fork_and_knife: [fork](https://help.github.com/articles/fork-a-repo/)
-   del repo de tu cohort, tus _coaches_ te compartirán un _link_ a un repo y te 
+   también). Si usas Windows puedes usar [Git bash](https://git-scm.com/download/win).
+2. Debes tener instalado [Node.js](https://nodejs.org/) (que
+incluye [npm](https://docs.npmjs.com/)) para ejecutar los test. También necesitas [Mocha](https://mochajs.org/). Con ambos podrás ejecutar los test sin problemas.
+
+***
+
+### Instalación 🔧
+
+_Pasos que debes ejecutar para tener un entorno de desarrollo ejecutándose:_
+
+***
+1. Haz tu propio :fork_and_knife: [fork](https://help.github.com/articles/fork-a-repo/)
+   del repo de tu cohort, tus _coaches_ te compartirán un _link_ a un repo y te
    darán acceso de lectura en ese repo.
-4. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
+2. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
    tu _fork_ a tu computadora (copia local).
-5. 📦 Instala las dependencias del proyecto con el comando `npm
+3. 📦 Instala las dependencias del proyecto con el comando `npm
    install`. Esto asume que has instalado [Node.js](https://nodejs.org/) (que
    incluye [npm](https://docs.npmjs.com/)).
-6. Si todo ha ido bien, deberías poder ejecutar las :traffic_light:
+4. Si todo ha ido bien, deberías poder ejecutar las :traffic_light:
    pruebas unitarias (unit tests) con el comando `npm test`.
-7. A codear se ha dicho! :rocket:
+***
 
-## Recursos y temas relacionados
 
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este proyecto. ¡Escúchala con detenimiento y sigue sus consejos! :)
 
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
+## Ejecutando las pruebas ⚙️
 
-Diseño de experiencia de usuario (User Experience Design):
+***
+1. Abrir terminal y posicionarse en la carpeta donde dejaste instalado el proyecto.
+2. ejecutar el comando `npm test`.
+3. Se observarán en consola principalmente las pruebas ejecutadas según las funciones que cumple la aplicación y los resultados esperados.
+```
+cipher.encode
+      ✓ debería ser una función
+      ✓ debería retornar "HIJKLMNOPQRSTUVWXYZABCDEFG" para "ABCDEFGHIJKLMNOPQRSTUVWXYZ" con offset 33
 
-- Ideación
-- Prototipado (sketching)
-- Testeo e Iteración
+```
+4. Se desplegarán en el navegador los mismos resultados esperados.
 
-Desarrollo Front-end:
+***
 
-* [Valores](https://lms.laboratoria.la/cohorts/scl-2019-06-bc-core-scl010/courses/javascript/01-basics/01-values-variables-and-types)
-* [Tipos](https://lms.laboratoria.la/cohorts/scl-2019-06-bc-core-scl010/courses/javascript/01-basics/01-values-variables-and-types)
-* [Variables](https://lms.laboratoria.la/cohorts/scl-2019-06-bc-core-scl010/courses/javascript/01-basics/02-variables)
-* [Control de flujo](https://lms.laboratoria.la/cohorts/scl-2019-06-bc-core-scl010/courses/javascript/02-flow-control/00-opening)
-* [Tests unitarios](https://lms.laboratoria.la/cohorts/scl-2019-06-bc-core-scl010/courses/javascript/11-testing/00-opening)
-* [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-* [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-* [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
-* [Documentación de NPM](https://docs.npmjs.com/)
+### Análisis de las pruebas
 
-Herramientas:
-- [GitHub y GitHub Pages](https://guides.github.com/)
-- [Guía de Scrum](https://www.scrumguides.org/docs/scrumguide/v1/scrum-guide-es.pdf): solamente para comenzar a entender cómo organizar tu trabajo.
+```
+cipher
+    ✓ debería ser un objeto
+```
+_Verifica la naturaleza misma del objeto principal que realiza las funciones de la applicación._
 
-## Checklist
-Esta sección está  para ayudarte a llevar un control de lo que vas completando.
+```
+cipher.encode
+      ✓ debería ser una función
+```
+_Si no es reconocida como una función, no podemos ejecutar ninguna funcionalidad de la aplicación._
 
-### Parte Obligatoria
-* [ ] `README.md` incluye info sobre proceso y decisiones de diseño.
-* [ ] `README.md` explica claramente quiénes son los usuarios y su relación con
-  el producto.
-* [ ] `README.md` explica claramente cómo el producto soluciona los
-  problemas/necesidades de los usuarios.
-* [ ] Usa VanillaJS.
-* [ ] No utiliza `this`.
-* [ ] Implementa `cipher.encode`.
-* [ ] Implementa `cipher.decode`.
-* [ ] Pasa linter con configuración provista.
-* [ ] Pasa pruebas unitarias.
-* [ ] Pruebas unitarias cubren 70% de _statements_, _functions_ y _lines_, y un
-  mínimo del 50% de _branches_.
-* [ ] Interfaz permite elegir el `offset` o _desplazamiento_ a usar en el
-  cifrado/descifrado.
-* [ ] Interfaz permite escribir un texto para ser cifrado.
-* [ ] Interfaz muestra el resultado del cifrado correctamente.
-* [ ] Interfaz permite escribir un texto para ser descifrado.
-* [ ] Interfaz muestra el resultado del descifrado correctamente.
+```
+cipher.encode
+      ✓ debería retornar "HIJKLMNOPQRSTUVWXYZABCDEFG" para "ABCDEFGHIJKLMNOPQRSTUVWXYZ" con offset 33
+      ✓ debería retornar "hijklmnopqrstuvwxyzabcdefg" para "abcdefghijklmnopqrstuvwxyz" con offset 33
+```
+_Verifica que la función reconozca mayúsculas y minúsculas y que las codifique correctamente._
 
-### Parte Opcional: "Hacker edition"
-* [ ] Cifra/descifra minúsculas
-* [ ] Cifra/descifra _otros_ caracteres (espacios, puntuación, `ñ`, `á`, ...)
-* [ ] Permite usar un `offset` negativo.
+```
+cipher.encode
+      ✓ debería retornar "3456789012" para "0123456789" con offset 33
+```
+_Verifica que la función reconozca números del 0 al 9 y que los codifique correctamente._
+
+```
+cipher.encode
+      ✓ debería retornar " ¿¡-_#@%&=+" para " ¿¡-_#@%&=+" con offset 33 => algunos caracteres válidos
+      ✓ debería retornar "" para "\/:*?"<>|" (Caracteres no válidos) con offset 33 => caracteres inválidos
+
+```
+_Verifica que la función reconozca caracteres válidos e inválidos para crear el nombre de un archivo en el computador. Los caracteres válidos los mantiene sin cambios y los caracteres inválidos los ignora._
+
+```
+cipher.decode
+      ✓ debería ser una función
+```
+_Al igual que cipher.encode, si no es reconocida como una función, no podemos ejecutar ninguna funcionalidad de la aplicación_
+
+```
+cipher.decode
+      ✓ debería retornar "ABCDEFGHIJKLMNOPQRSTUVWXYZ" para "HIJKLMNOPQRSTUVWXYZABCDEFG" con offset 33
+      ✓ debería retornar "abcdefghijklmnopqrstuvwxyz" para "hijklmnopqrstuvwxyzabcdefg" con offset 33
+```
+_Verifica que la función reconozca mayúsculas y minúsculas y que las decodifique correctamente._
+
+```
+cipher.decode
+      ✓ debería retornar "0123456789" para "3456789012" con offset 33
+```
+_Verifica que la función reconozca números del 0 al 9 y que los decodifique correctamente._
+
+```
+cipher.decode
+      ✓ debería retornar " ¿¡-_#@%&=+" para " ¿¡-_#@%&=+" con offset 33 => algunos caracteres válidos
+      ✓ debería retornar "" para "\/:*?"<>|" (Caracteres no válidos) con offset 33 => caracteres inválidos
+```
+_Al igual que cipher.encode, verifica que la función reconozca caracteres válidos e inválidos para crear el nombre de un archivo en el computador. Los caracteres válidos los mantiene sin cambios y los caracteres inválidos los ignora._
+
+
+## Deployment 📦
+
+_Agrega notas adicionales sobre como hacer deploy_
+
+Deploy original de [Archivos Secretos](https://claudiaquezadariquelme.github.io/SCL010-Cipher/src/index.html).
+
+Desde terminal, para hacer deploy primero subo mis cambios a mi remote con los comandos `git push [nombre-remote] [branch]`, ejemplo:
+```
+git push origin master
+```
+Y luego creo mi rama gh-pages y subo mis cambios con `:gh-pages` para crear mi deploy.
+```
+git push origin master:gh-pages
+```
+
+
+## Construido con 🛠️
+
+_Menciona las herramientas que utilizaste para crear tu proyecto_
+
+* [SCL010-Cipher](https://github.com/Laboratoria/SCL010-Cipher) - Cipher Cesar propuesto para el proyecto.
+* [Git y GitHub](https://docs.google.com/presentation/d/1Jsz3IRNO5-RJ8yltE3qBC10UAYMPkjLp2GK4RUZ72mQ/edit#slide=id.g3a8868e30a_0_109) - Tutorial Git y Github.
+* [Caracteres Especiales](http://w3.unpocodetodo.info/utiles/glyphs.php) - Trabajo con caracteres especiales o reservados.
+* [Villanuevand](https://gist.github.com/Villanuevand/6386899f70346d4580c723232524d35a) - Para hacer un buen README.
+
+
+## Autores ✒️
+
+_Todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
+
+* **Claudia Quezada Riquelme** - *Trabajo Inicial* - [ClaudiaQuezadaRiquelme](https://github.com/ClaudiaQuezadaRiquelme)
+* **Cifrado César** - *Documentación* - [Laboratoria/SCL010-Cipher](https://github.com/Laboratoria/SCL010-Cipher)
+* **Squad 3** - *Trabajo en Equipo*
+* **Squad de al lado** - *Ayuda Test adicional*
+* **Scarlette ex Squad 2 de preAdmisión** - *Ideas con cifrado en números y uso de caracteres no alfanuméricos*
+
+
+
+## Expresiones de Gratitud 🎁
+
+* Gracias a todas por el espíritu cooperador.
+* Gracias por compartir ideas en los break.
+* Gracias a quien termina algo antes e intenta ayudar a sus compañeras en block.
+* Quiero pizza.
+
+
+
+---
+⌨️ con ❤️ por [ClaudiaQuezadaRiquelme](https://github.com/ClaudiaQuezadaRiquelme)
