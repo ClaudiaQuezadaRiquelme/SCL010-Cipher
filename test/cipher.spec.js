@@ -26,7 +26,7 @@ describe('cipher', () => {
       assert.equal(cipher.encode(33," ¿¡-_#@%&=+"), " ¿¡-_#@%&=+");
     });
 
-    it('debería retornar "" para "\134/:*?"<>|" (Caracteres no válidos) con offset 33 => caracteres inválidos', () => {
+    it('debería retornar "" para "\134/:*?"<>|" con offset 33 => caracteres inválidos', () => {
       assert.equal(cipher.encode(33,'\134/:*?"<>|'), "");
     }); //NO FUNCIONA-BA
     //Intenté con caracteres hexadecimales, etc, pero no funciona tampoco.
@@ -58,7 +58,7 @@ describe('cipher', () => {
       assert.equal(cipher.decode(33," ¿¡-_#@%&=+"), " ¿¡-_#@%&=+");
     });
 
-    it('debería retornar "" para "\134/:*?"<>|" (Caracteres no válidos) con offset 33 => caracteres inválidos', () => {
+    it('debería retornar "" para "\134/:*?"<>|" con offset 33 => caracteres inválidos', () => {
       assert.equal(cipher.decode(33,'\134/:*?"<>|'), "");
     }); //NO FUNCIONA-BA
     //Intenté con caracteres hexadecimales, etc, pero no funciona tampoco.
