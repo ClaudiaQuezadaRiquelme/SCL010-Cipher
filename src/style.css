@@ -2,7 +2,7 @@ button {
 
 }
 
-#copy1, #comeBack1, #restart1, #copy2, #comeBack2, #restart2, #cipher, #decipher {
+#copy1, #comeBack1, #restart1, #copy2, #comeBack2, #restart2, #cipher, #decipher, #invalid1, #invalid2 {
   display: none;
 }
 

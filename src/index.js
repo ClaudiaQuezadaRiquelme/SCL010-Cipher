@@ -4,7 +4,6 @@
 1.1 cerciórate que el botón tiene id
 2.AddEventListener para escuchar el click del botón
 3. ocultar div Welcome, mostrar div enter
-
 */
 const btnYes = document.getElementById("yes");
 btnYes.addEventListener("click", ()=> {
@@ -48,6 +47,11 @@ btnEnter1.addEventListener("click", ()=> {
 
   //mostrar respuesta
   document.getElementById("nameA").value = window.cipher.encode(inputOffset, inputString);
+  //si el codigo cifrado tiene largo menor al largo del input, es porque habían caracteres inválidos. Desplegar mensaje si es así
+  if (inputString.length > document.getElementById("nameA").value.length) {
+    document.getElementById("invalid1").style.display = "block";
+  }
+
   //mostrar botones para volver y ocultar boton ingresar
   //CUIDADO PARA VOLVER A MOSTRAR btnEnter1
   //tenemos un error de funcionamiento por esto
@@ -76,6 +80,11 @@ btnEnter2.addEventListener("click", ()=> {
   let inputString = document.getElementById("nameB").value;
   //mostrar respuesta
   document.getElementById("nameB").value = window.cipher.decode(inputOffset, inputString);
+  //si el codigo cifrado tiene largo menor al largo del input, es porque habían caracteres inválidos. Desplegar mensaje si es así
+  if (inputString.length > document.getElementById("nameB").value.length) {
+    document.getElementById("invalid2").style.display = "block";
+  }
+
   //mostrar botones para volver y ocultar boton ingresar
   //CUIDADO PARA VOLVER A MOSTRAR btnEnter1
   //tenemos un error de funcionamiento por esto
@@ -138,6 +147,8 @@ btnComeBack1.addEventListener("click", () => {
   document.getElementById("comeBack1").style.display = "none";
   document.getElementById("restart1").style.display = "none";
   document.getElementById("cipher").style.display = "none";
+  //Ocultar mensaje inválido si es que se desplegó
+  document.getElementById("invalid1").style.display = "none";
   //Mostrar boton ingresar.
   //duplico porque en una iteración que no reconocí, se borró uno de los botones ingresar y no sé por qué
   document.getElementById("btnEnter1").style.display = "block";
@@ -157,7 +168,9 @@ btnComeBack2.addEventListener("click", () => {
   document.getElementById("copy2").style.display = "none";
   document.getElementById("comeBack2").style.display = "none";
   document.getElementById("restart2").style.display = "none";
-  document.getElementById("cipher").style.display = "none";
+  document.getElementById("decipher").style.display = "none";
+  //Ocultar mensaje inválido si es que se desplegó
+  document.getElementById("invalid2").style.display = "none";
   //Mostrar boton ingresar.
   //duplico porque en una iteración que no reconocí, se borró uno de los botones ingresar y no sé por qué
   document.getElementById("btnEnter2").style.display = "block";
@@ -187,6 +200,8 @@ btnRestart1.addEventListener("click", () => {
   document.getElementById("comeBack1").style.display = "none";
   document.getElementById("restart1").style.display = "none";
   document.getElementById("cipher").style.display = "none";
+  //Ocultar mensaje inválido si es que se desplegó
+  document.getElementById("invalid1").style.display = "none";
   //limpiar inputs
   document.getElementById("nameA").value = "";
   document.getElementById("offsetA").value = "";
@@ -207,6 +222,8 @@ btnRestart2.addEventListener("click", () => {
   document.getElementById("comeBack2").style.display = "none";
   document.getElementById("restart2").style.display = "none";
   document.getElementById("decipher").style.display = "none";
+  //Ocultar mensaje inválido si es que se desplegó
+  document.getElementById("invalid2").style.display = "none";
   //limpiar inputs
   document.getElementById("nameA").value = "";
   document.getElementById("offsetA").value = "";

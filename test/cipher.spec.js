@@ -27,8 +27,8 @@ describe('cipher', () => {
     });
 
     /*
-    it('debería retornar "" para "\/:*?"<>|" (Caracteres no válidos) con offset 33', () => {
-      assert.equal(cipher.encode(33,'//:*?"<>|'), "");
+    it('debería retornar "Undefined" para "/:*?"<>|" (Caracteres no válidos) con offset 33', () => {
+      assert.equal(cipher.encode(33,'/:*?"<>|'), Undefined);
     });*/ //NO FUNCIONA
     //Intenté con caracteres hexadecimales, etc, pero no funciona tampoco.
     // ¿no será por el alert que no funciona? puede ser.

@@ -49,7 +49,8 @@ window.cipher = {
         nameCipher += String.fromCharCode((codeChart - 48 + inputOffset) % 10 + 48);
       } else if (codeChart === 92 || codeChart === 47 || codeChart === 58 || codeChart === 42 || codeChart === 63 || codeChart === 34 || codeChart === 60 || codeChart === 62 || codeChart === 124) {
         //son caracteres no permitidos
-        alert('Hay caracteres no permitidos. No serán considerados.');
+        //no hace nada. Queda string retornado más corto que string ingresado.
+        //alert('Hay caracteres no permitidos. No serán considerados.');
       } else {
         //Caracteres aceptables dejarlos igual
         nameCipher += String.fromCharCode(codeChart);
@@ -94,7 +95,8 @@ window.cipher = {
 
       } else if (codeChart === 92 || codeChart === 47 || codeChart === 58 || codeChart === 42 || codeChart === 63 || codeChart === 34 || codeChart === 60 || codeChart === 62 || codeChart === 124) {
         //son caracteres no permitidos (FUNCIONA)
-        alert("Hay caracteres no permitidos. No serán considerados.");
+        //no hace nada. Queda string retornado más corto que string ingresado.
+        //alert('Hay caracteres no permitidos. No serán considerados.');
       } else {
         //Caracteres aceptables dejarlos igual (FUNCIONA)
         nameDecipher += String.fromCharCode(codeChart);
